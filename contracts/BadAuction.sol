@@ -1,4 +1,4 @@
-pragma solidity 0.4.20;
+pragma solidity 0.4.19;
 
 import "./AuctionInterface.sol";
 
@@ -17,6 +17,7 @@ contract BadAuction is AuctionInterface {
             msg.sender.transfer(msg.value);
             return false;
         } else {
+            highestBidder.transfer(highestBid);
             highestBid = msg.value;
             highestBidder = msg.sender;
             return true;
@@ -48,6 +49,7 @@ contract BadAuction is AuctionInterface {
 		How do we send people their money back?  */
 
 	function () payable {
+
 		revert();
 	}
 
