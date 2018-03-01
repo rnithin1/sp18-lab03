@@ -1,4 +1,4 @@
-pragma solidity 0.4.19;
+pragma solidity 0.4.20;
 
 import "./AuctionInterface.sol";
 
@@ -44,7 +44,15 @@ contract GoodAuction is AuctionInterface {
 	/*  Rewrite reduceBid from BadAuction to fix
 		the security vulnerabilities. Should allow the
 		current highest bidder only to reduce their bid amount */
-	function reduceBid() external {}
+	function reduceBid() external {
+		if (highestBid > 0) {
+	        highestBid = highestBid - 1;
+	        require(highestBidder.send(1));
+	    } else {
+	    	revert();
+	    }
+
+	}
 
 
 	/* 	Remember this fallback function
