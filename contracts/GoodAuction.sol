@@ -1,4 +1,4 @@
-pragma solidity 0.4.20;
+pragma solidity 0.4.19;
 
 import "./AuctionInterface.sol";
 
@@ -67,3 +67,4 @@ contract GoodAuction is AuctionInterface {
 	}
 
 }
+
