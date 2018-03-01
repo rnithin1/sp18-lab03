@@ -32,9 +32,7 @@ contract GoodAuction is AuctionInterface {
 	    pull paradigm. Returns true on successful 
 	    return of owed funds and false on failure
 	    or no funds owed.  */
-	function withdrawRefund() external returns(bool) {
-		// YOUR CODE HERE
-	}
+	function withdrawRefund() external returns(bool) {}
 
 	/*  Allow users to check the amount they are owed
 		before calling withdrawRefund(). Function returns
@@ -48,6 +46,7 @@ contract GoodAuction is AuctionInterface {
 		and applying it to the reduceBid function 
 		you fill in below. */
 	modifier canReduce() {
+        require(!(msg.sender == highestBidder));
 		_;
 	}
 
@@ -74,7 +73,7 @@ contract GoodAuction is AuctionInterface {
 		How do we send people their money back?  */
 
 	function () payable {
-		// YOUR CODE HERE
+	    revert();	
 	}
 
 }
