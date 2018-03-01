@@ -1,3 +1,7 @@
+Nithin Raghavan - 3033077257 - rnithin@berkeley.edu 
+Karsten Fonseca - 26428719 - kfonseca@berkeley.edu
+Sahana Srinivasan - 26126130 - sahana.srinivasan@berkeley.edu
+
 # Attack the Auction
 Welcome to lab03. In this assignment you'll be getting acclimated with external calls, inheritance, and smart contract security.
 
