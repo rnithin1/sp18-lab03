@@ -14,7 +14,18 @@ contract GoodAuction is AuctionInterface {
 		reassignment. Must return false on failure and 
 		allow people to retrieve their funds  */
 	function bid() payable external returns(bool) {
-		// YOUR CODE HERE
+		if (msg.value > highestBid) {
+			// Fail to send back highestBid to original highestBidder
+		    refunds[highestBidder] += highestBid;
+			highestBidder = msg.sender;
+			highestBid = msg.value;
+			return true;
+		} else {
+		// bid is less than highest bidder, send back funds
+            refunds[msg.sender] += msg.value;
+            return false;
+        }
+
 	}
 
 	/*  Implement withdraw function to complete new 
